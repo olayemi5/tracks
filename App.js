@@ -9,8 +9,10 @@ import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import { Provider as AuthPovider} from './src/context/AuthContext';
+import { Provider as LocationProvider } from './src/context/LocationContext';
 import { setNavigator } from './src/navigationRef';
 import LoadingScreen from './src/screens/LoadingScreen';
+
 
 const switchNavigator = createSwitchNavigator({
     Loading: LoadingScreen,
@@ -32,8 +34,10 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return(
-    <AuthPovider>
-      <App ref={(navigator) => { setNavigator(navigator) }} />
-    </AuthPovider>
+    <LocationProvider>
+      <AuthPovider>
+        <App ref={(navigator) => { setNavigator(navigator) }} />
+      </AuthPovider>
+    </LocationProvider>
   )
 }
