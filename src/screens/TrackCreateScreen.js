@@ -6,6 +6,7 @@ import { SafeAreaView, withNavigationFocus } from 'react-navigation'
 import Map from '../component/Map'
 import { Context } from '../context/LocationContext'
 import useLocation from '../hooks/useLocation'
+import TrackForm from '../component/TrackForm'
 
 const TrackCreateScreen = ({ isFocused }) => {
    
@@ -17,6 +18,7 @@ const TrackCreateScreen = ({ isFocused }) => {
             <Text h2>Create a Track</Text>
             <Map />
             { err ? <Text>Please enable location services</Text> : null }
+            <TrackForm />
         </SafeAreaView>
     )
 }
